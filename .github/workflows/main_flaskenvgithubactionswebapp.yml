@@ -29,10 +29,10 @@ jobs:
 
     - name: Building web app
       uses: azure/appservice-build@v2  
-    - name: Deploy Web App to ddstaging slot
+    - name: Deploy Web App to staging slot
       uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}    
         slot-name: ${{ env.AZURE_SLOT_NAME }}     # The deployment slot
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_STAGING }} 
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} 
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} 

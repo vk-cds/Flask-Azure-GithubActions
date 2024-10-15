@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  AZURE_WEBAPP_NAME: FlaskEnvGithubActionsWebApp 
+  AZURE_WEBAPP_NAME: flaskenvgithubactionswebapp/staging 
   AZURE_WEBAPP_PACKAGE_PATH: '.' 
   AZURE_SLOT_NAME: 'staging'  
 
@@ -34,5 +34,5 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}    
         slot-name: ${{ env.AZURE_SLOT_NAME }}     # The deployment slot
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }} 
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_STAGING }} 
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }} 

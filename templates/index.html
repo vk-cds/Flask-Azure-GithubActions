@@ -5,15 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <style>
-        li {
-            padding: 8px;
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        button{
-           padding:2px;
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button {
+            background-color: #f44336;
+            padding: 5px 10px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        li button:hover {
+            background-color: #e53935;
         }
     </style>
 </head>
 <body>
+    <div>
     <h1>{{app_env}} - To-Do List</h1>
     <form action="/add" method="post">
         <input type="text" name="task" placeholder="Enter a new task" required>
@@ -24,9 +95,10 @@
     <ol>
         {% for task in tasks %}
             <li >
-                {{ task }} <button type="button"> <a style="text-decoration: none ; color:black "  href="/delete/{{ loop.index0 }}">Delete</a></button>
+                {{ task }} <button type="button"> <a href="/delete/{{ loop.index0 }}">Delete</a></button>
             </li>
         {% endfor %}
     </ol>
+    </div>
 </body>
 </html>
